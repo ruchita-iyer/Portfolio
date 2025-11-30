@@ -5,6 +5,7 @@ import snakeImg from '../images/snake.png';
 import dalleImg from '../images/dalle.png';
 import giveawayImg from '../images/giveaway.png';
 import hotelImg from '../images/hotel.png';
+import flavourFusionImg from '../images/flavourfusion.png';
 
 interface Project {
   id: number;
@@ -25,7 +26,7 @@ const Projects: React.FC = () => {
       title: 'Flavour Fusion AI Recipe Generator',
       description: 'I developed Flavour Fusion, a full-stack Next.js application that combats food waste by using Gemini AI to generate unique recipes from ingredients users already have at home. This project involved building a responsive UI with modern tools like Tailwind CSS and managing the complete development and deployment process on Vercel.',
       technologies: ['Tailwind CSS', 'Gemini AI', 'ShadCN'],
-      image: memory,
+      image: flavourFusionImg,
       liveUrl: 'https://flavour-fusion-inky.vercel.app/',
       repoUrl: 'https://github.com/ruchita-iyer/Flavour-Fusion'
     },
