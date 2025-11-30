@@ -22,6 +22,15 @@ const Projects: React.FC = () => {
   const projects: Project[] = [
     {
       id: 1,
+      title: 'Flavour Fusion AI Recipe Generator',
+      description: 'I developed Flavour Fusion, a full-stack Next.js application that combats food waste by using Gemini AI to generate unique recipes from ingredients users already have at home. This project involved building a responsive UI with modern tools like Tailwind CSS and managing the complete development and deployment process on Vercel.',
+      technologies: ['Tailwind CSS', 'Gemini AI', 'ShadCN'],
+      image: memory,
+      liveUrl: 'https://flavour-fusion-inky.vercel.app/',
+      repoUrl: 'https://github.com/ruchita-iyer/Flavour-Fusion'
+    },
+    {
+      id: 2,
       title: 'Memory Master Game',
       description: 'A brain-teasing card matching game where players flip pairs of cards to find matches, testing and improving memory skills with increasing difficulty levels.',
       technologies: ['TypeScript', 'HTML', 'CSS', 'Node'],
@@ -30,7 +39,7 @@ const Projects: React.FC = () => {
       repoUrl: 'https://github.com/ruchita-iyer/Memory-game'
     },
     {
-      id: 2,
+      id: 3,
       title: 'NeuroSnake Game',
       description: 'A modern take on the classic Snake game where players navigate a snake to collect food and grow longer without colliding with walls or itself.',
       technologies: ['TypeScript', 'HTML', 'CSS', 'Node'],
@@ -39,7 +48,7 @@ const Projects: React.FC = () => {
       repoUrl: 'https://github.com/ruchita-iyer/Snake-game'
     },
     {
-      id: 3,
+      id: 4,
       title: 'Full-Stack AI Image Generation App',
       description: 'MERN stack project with OpenAI Dall-e API to generate images',
       technologies: ['JavaScript', 'HTML', 'CSS', 'OpenAI API', 'React', 'Express', 'MongoDB'],
@@ -48,7 +57,7 @@ const Projects: React.FC = () => {
       repoUrl: 'https://github.com/ruchita-iyer/Dall-e'
     },
     {
-      id: 4,
+      id: 5,
       title: 'Giveaway App',
       description: 'iOS App built using Swift to buy or sell 2nd hand items in your neighbourhood',
       technologies: ['Swift', 'Xcode'],
@@ -57,7 +66,7 @@ const Projects: React.FC = () => {
       repoUrl: 'https://github.com/ruchita-iyer/Giveaway-app'
     },
     {
-      id: 3,
+      id: 6,
       title: 'Hotel booking website',
       description: 'MERN stack project for booking and managing hotels',
       technologies: ['JavaScript', 'HTML', 'CSS',  'React', 'Express', 'MongoDB'],
@@ -68,7 +77,7 @@ const Projects: React.FC = () => {
     // Add more projects as needed
   ];
   
-  const filters = ['all', 'React', 'TypeScript', 'JavaScript'];
+  const filters = ['all', 'React', 'TypeScript', 'JavaScript', 'AI', 'MERN'];
   
   const filteredProjects = activeFilter === 'all' 
     ? projects 
