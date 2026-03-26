@@ -1,119 +1,108 @@
 .header {
-    position: fixed;
-    top: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1rem 0;
+  transition: all 0.3s ease;
+  background: transparent;
+  border-bottom: 2px solid transparent;
+}
+
+.header.scrolled {
+  background: rgba(9, 3, 26, 0.95);
+  border-bottom: 2px solid var(--retro-pink);
+  box-shadow: 0 0 15px var(--retro-pink);
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.logo a {
+  font-family: var(--font-pixel);
+  font-size: 1.5rem;
+  color: var(--retro-green);
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0 var(--retro-pink);
+}
+
+.nav-menu ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu a {
+  font-family: var(--font-pixel);
+  font-size: 0.9rem;
+  color: var(--retro-text);
+  text-transform: uppercase;
+  position: relative;
+}
+
+.nav-menu a::before {
+  content: '>';
+  position: absolute;
+  left: -15px;
+  opacity: 0;
+  color: var(--retro-yellow);
+  transition: opacity 0.2s;
+}
+
+.nav-menu a:hover {
+  color: var(--retro-yellow);
+  text-shadow: 0 0 8px var(--retro-yellow);
+}
+
+.nav-menu a:hover::before {
+  opacity: 1;
+  animation: blink 0.5s infinite;
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.menu-toggle span {
+  width: 30px;
+  height: 3px;
+  background: var(--retro-green);
+  transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+  .nav-menu {
+    position: absolute;
+    top: 100%;
     left: 0;
     width: 100%;
-    padding: 20px 0;
-    z-index: 1000;
-    transition: all var(--transition-speed) ease;
-    background-color: transparent;
+    background: rgba(9, 3, 26, 0.95);
+    border-bottom: 2px solid var(--retro-pink);
+    display: none;
   }
-  
-  .header.scrolled {
-    background-color: white;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 15px 0;
+  .nav-menu.active {
+    display: block;
   }
-  
-  .header .container {
-    display: flex;
-    justify-content: space-between;
+  .nav-menu ul {
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1.5rem;
     align-items: center;
   }
-  
-  .logo a {
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--primary-color);
-  }
-  
-  .nav-menu ul {
-    display: flex;
-  }
-  
-  .nav-menu ul li {
-    margin-left: 30px;
-  }
-  
-  .nav-menu ul li a {
-    font-weight: 500;
-    position: relative;
-  }
-  
-  .nav-menu ul li a:hover {
-    color: var(--primary-color);
-  }
-  
-  .nav-menu ul li a::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--primary-color);
-    transition: width var(--transition-speed) ease;
-  }
-  
-  .nav-menu ul li a:hover::after {
-    width: 100%;
-  }
-  
-  .menu-toggle {
-    display: none;
-    cursor: pointer;
-  }
-  
-  .menu-toggle span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background-color: var(--dark-color);
-    margin: 5px 0;
-    transition: all var(--transition-speed) ease;
-  }
-  
-  @media (max-width: 768px) {
-    .nav-menu {
-      position: fixed;
-      top: 0;
-      right: -100%;
-      width: 70%;
-      height: 100vh;
-      background-color: white;
-      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-      padding-top: 80px;
-      transition: right var(--transition-speed) ease;
-      z-index: 999;
-    }
-    
-    .nav-menu.active {
-      right: 0;
-    }
-    
-    .nav-menu ul {
-      flex-direction: column;
-      text-align: center;
-    }
-    
-    .nav-menu ul li {
-      margin: 15px 0;
-    }
-    
-    .menu-toggle {
-      display: block;
-      z-index: 1000;
-    }
-    
-    .menu-toggle.active span:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 6px);
-    }
-    
-    .menu-toggle.active span:nth-child(2) {
-      opacity: 0;
-    }
-    
-    .menu-toggle.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(5px, -6px);
-    }
-  }
+}

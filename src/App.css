@@ -1,38 +1,132 @@
-.App {
-  text-align: center;
+/* Global CRT Effect Overlay */
+.app {
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
 }
 
-.App-logo {
-  height: 40vmin;
+.app::before {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%,
+    rgba(0, 0, 0, 0.25) 50%
+  ), linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.06),
+    rgba(0, 255, 0, 0.02),
+    rgba(0, 0, 255, 0.06)
+  );
+  z-index: 9999;
+  background-size: 100% 2px, 3px 100%;
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.app::after {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: radial-gradient(circle, rgba(0,0,0,0) 60%, rgba(0,0,0,0.6) 100%);
+  z-index: 10000;
+  pointer-events: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Boot Screen */
+.loading-screen {
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  background-color: #000;
+  color: var(--retro-green);
+  text-transform: uppercase;
 }
 
-.App-link {
-  color: #61dafb;
+.loader {
+  width: 20px;
+  height: 20px;
+  background-color: var(--retro-green);
+  margin-bottom: 2rem;
+  animation: blink 1s step-end infinite;
+  box-shadow: 0 0 10px var(--retro-green);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.loading-screen p {
+  font-family: var(--font-pixel);
+  font-size: 1.5rem;
+  animation: pulse 2s infinite;
+  text-shadow: 0 0 5px var(--retro-green);
+}
+
+/* Common Retro Elements */
+.retro-button {
+  background: transparent;
+  color: var(--retro-cyan);
+  font-family: var(--font-pixel);
+  font-size: 1rem;
+  border: 2px solid var(--retro-cyan);
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: 0.2s;
+  box-shadow: inset 0 0 0 transparent, 0 0 0 transparent;
+}
+
+.retro-button:hover {
+  background: var(--retro-cyan);
+  color: var(--retro-bg);
+  box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.5), 0 0 15px var(--retro-cyan);
+}
+
+.retro-container {
+  border: 4px solid var(--retro-pink);
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 10px var(--retro-pink), inset 0 0 10px var(--retro-pink);
+  position: relative;
+}
+
+/* Layout */
+main {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  padding-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+/* Animations */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); text-shadow: 0 0 5px var(--retro-green); }
+  50% { transform: scale(1.05); text-shadow: 0 0 15px var(--retro-green), 0 0 20px var(--retro-green); }
+  100% { transform: scale(1); text-shadow: 0 0 5px var(--retro-green); }
+}
+
+@keyframes glitch {
+  0% { transform: translate(0) }
+  20% { transform: translate(-2px, 2px) }
+  40% { transform: translate(-2px, -2px) }
+  60% { transform: translate(2px, 2px) }
+  80% { transform: translate(2px, -2px) }
+  100% { transform: translate(0) }
 }
