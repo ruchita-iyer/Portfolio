@@ -7,6 +7,7 @@ import dalleImg from '../images/dalle.png';
 import giveawayImg from '../images/giveaway.png';
 import hotelImg from '../images/hotel.png';
 import flavourFusionImg from '../images/flavourfusion.png';
+import foodPassportImg from '../images/foodpassport.png';
 
 interface Project {
   id: number;
@@ -22,6 +23,14 @@ const Projects: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<string>('all');
   
   const projects: Project[] = [
+    {
+      id: 7,
+      title: 'Food Passport',
+      description: 'A responsive travel food journal with a scrapbook UI, featuring securely isolated Supabase RLS, Google OAuth, and client-side compressed photo uploads.',
+      technologies: ['React', 'Vite', 'Supabase', 'CSS'],
+      image: foodPassportImg,
+      liveUrl: 'https://lnkd.in/eKpkUybr'
+    },
     {
       id: 1,
       title: 'Flavour Fusion',
