@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, MapPin, Coffee, Code2, Terminal, MonitorSmartphone } from 'lucide-react';
+import { Code2, Terminal, MonitorSmartphone } from 'lucide-react';
 import aboutImg from '../images/me_about.jpg';
 
 const About: React.FC = () => {
