@@ -15,8 +15,9 @@ const App: React.FC = () => {
       <main>
         <Hero />
         {/* Reordered for impact: Projects -> Experience -> About */}
-        <Projects />
+
         <Experience />
+        <Projects />
         <About />
         <Contact />
       </main>

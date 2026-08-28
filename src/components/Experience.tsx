@@ -11,6 +11,7 @@ interface ExperienceData {
   description: string[];
   technologies?: string[];
   gradient: string;
+  textColor: string;
   category: 'work' | 'education';
   spanClass: string; 
 }
@@ -18,17 +19,18 @@ interface ExperienceData {
 const bentoExperiences: ExperienceData[] = [
   {
     id: 'w1',
-    title: 'Frontend Engineer',
+    title: 'Frontend React Developer',
     company: 'ImEx Cargo',
-    location: 'Remote, USA',
-    period: 'Apr 2025 - Feb 2026',
+    location: 'Boston, MA',
+    period: 'Feb 2025 - Present',
     description: [
-      'Increased user engagement by 37% and reduced task completion time 25% by building production React/TypeScript components.',
-      'Cut page load time 35% and improved Core Web Vitals scores by implementing lazy loading and render optimization.',
-      'Achieved 95+ Lighthouse accessibility scores following WCAG 2.1.',
+      'Architected a real-time shipment-tracking dashboard using Figma, React.js, and TypeScript to help customers monitor cargo movement, delivery milestones, and transit status.',
+      'Engineered a dynamic booking and scheduling module with multi-step workflows, input validation, and conditional rendering to simplify cargo reservation processes for logistics operators.',
+      'Designed responsive, mobile-first logistics interfaces using Tailwind CSS, Sass/SCSS, and CSS Modules, ensuring seamless access for field agents using tablets and mobile devices at warehouses and ports.',
     ],
-    technologies: ['React', 'TypeScript', 'WCAG 2.1', 'Core Web Vitals'],
+    technologies: ['React.js', 'TypeScript', 'Figma', 'Tailwind CSS', 'Sass/SCSS', 'CSS Modules'],
     gradient: 'from-blue-400 to-indigo-500',
+    textColor: 'text-blue-400',
     category: 'work',
     spanClass: 'md:col-span-2 md:row-span-2', // Large Focus Card
   },
@@ -43,38 +45,43 @@ const bentoExperiences: ExperienceData[] = [
     ],
     technologies: ['Web Dev', 'DB Design'],
     gradient: 'from-rose-400 to-red-500',
+    textColor: 'text-rose-400',
     category: 'education',
     spanClass: 'md:col-span-1 md:row-span-1',
   },
   {
     id: 'w2',
-    title: 'Frontend Intern',
-    company: 'ImEx Cargo',
-    location: 'Remote, USA',
-    period: 'Jan - Jun 2024',
+    title: 'Frontend React Developer',
+    company: 'Nomad Health',
+    location: 'New York, NY',
+    period: 'Aug 2023 - Dec 2024',
     description: [
-      'Cut page load time 33% by building scalable components.',
-      'Saved ops 10+ hrs/mo via utility DOM scripts.',
+      'Developed a clinician onboarding portal using React.js and TypeScript, streamlining credential submission, license verification, document upload, and compliance tracking for healthcare staffing workflows.',
+      'Built an advanced job search and filtering interface with faceted search, geolocation-based results, specialty matching, and saved search functionality to improve clinician-job matching efficiency.',
+      'Implemented Context API and custom React Hooks for managing complex multi-step credentialing forms, session persistence, and shared application state across the clinician dashboard.',
     ],
-    technologies: ['React', 'JavaScript', 'SEO'],
+    technologies: ['React.js', 'TypeScript', 'Context API', 'React Hooks', 'Geolocation'],
     gradient: 'from-emerald-400 to-teal-500',
+    textColor: 'text-emerald-400',
     category: 'work',
     spanClass: 'md:col-span-1 md:row-span-1',
   },
   {
     id: 'w3',
-    title: 'Assoc. Software Engineer',
+    title: 'Software Engineer - Frontend React',
     company: 'Cognizant',
     location: 'Bengaluru, India',
-    period: '2019 - 2022',
+    period: 'Sep 2019 - Aug 2022',
     description: [
-      'Engineered 50+ integrations in Java for 10,000+ users.',
-      'Built internal tools dynamically within Agile sprints.',
+      'Developed responsive user interfaces and interactive dashboards using React.js, TypeScript, and JavaScript to enhance user experience and data visualization.',
+      'Collaborated with cross-functional teams in an Agile environment to design, build, and deploy reusable UI components and integrate with RESTful APIs.',
+      'Optimized front-end performance, resolving rendering issues and improving site load speed and responsiveness across devices.',
     ],
-    technologies: ['Java', 'Groovy', 'Agile'],
+    technologies: ['React.js', 'TypeScript', 'Redux', 'JavaScript', 'Agile'],
     gradient: 'from-purple-400 to-pink-500',
+    textColor: 'text-purple-400',
     category: 'work',
-    spanClass: 'md:col-span-2 md:row-span-1',
+    spanClass: 'md:col-span-1 md:row-span-1',
   },
   {
     id: 'e2',
@@ -87,20 +94,24 @@ const bentoExperiences: ExperienceData[] = [
     ],
     technologies: ['Data Structures', 'Algorithms'],
     gradient: 'from-amber-400 to-orange-500',
+    textColor: 'text-amber-400',
     category: 'education',
     spanClass: 'md:col-span-1 md:row-span-1',
   },
   {
     id: 'w4',
-    title: 'Software Engineer Intern',
-    company: 'Cognizant',
+    title: 'Associate Software Engineer- Frontend React',
+    company: 'Smallcase',
     location: 'Bengaluru, India',
-    period: 'Jan - May 2019',
+    period: 'Jun 2018 - Aug 2019',
     description: [
-      'Supported 100+ product workflows by building a full-stack web application with React, Java, Spring, and MySQL.',
+      'Designed and implemented interactive financial dashboards and micro-frontends using React.js, Redux, and JavaScript (ES6+).',
+      'Collaborated with designers and product managers to build reusable component libraries and unified design patterns across investor tools.',
+      'Improved web application performance and modularity, contributing to a seamless and responsive platform UI.',
     ],
-    technologies: ['React', 'Java', 'Spring', 'MySQL'],
+    technologies: ['React.js', 'Redux', 'JavaScript', 'REST APIs', 'Webpack'],
     gradient: 'from-fuchsia-400 to-purple-500',
+    textColor: 'text-fuchsia-400',
     category: 'work',
     spanClass: 'md:col-span-3 md:row-span-1', // Full width span at the bottom
   },
@@ -136,7 +147,7 @@ const BentoCard: React.FC<{ exp: ExperienceData; index: number }> = ({ exp, inde
       </div>
 
       <h3 className="text-xl md:text-3xl font-bold text-white mb-2 leading-tight group-hover:scale-[1.01] origin-left transition-transform duration-300">{exp.title}</h3>
-      <div className={`text-md md:text-lg font-black mb-4 text-transparent bg-clip-text bg-gradient-to-r ${exp.gradient} tracking-wide`}>{exp.company}</div>
+      <div className={`text-md md:text-lg font-bold mb-4 ${exp.textColor} tracking-wide`}>{exp.company}</div>
       
       <div className="flex items-center gap-1.5 text-xs text-foreground/50 mb-6 font-medium">
         <MapPin size={14} className="opacity-70" />
@@ -179,21 +190,50 @@ const Experience: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/60 text-sm font-bold tracking-widest uppercase mb-4">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
             My Journey
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Experience & Education</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 font-heading">Experience & Education</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-rose-500 mx-auto rounded-full"></div>
         </motion.div>
-        
-        {/* The Bento Box Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 auto-rows-[minmax(0,auto)] gap-6 relative">
-          {bentoExperiences.map((exp, index) => (
-            <BentoCard key={exp.id} exp={exp} index={index} />
-          ))}
+
+        {/* Work Experience Section */}
+        <div className="mb-24">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 text-primary">
+              <Briefcase size={22} />
+            </div>
+            <h3 className="text-2xl md:text-3xl font-bold text-white font-heading">Work Experience</h3>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 auto-rows-[minmax(0,auto)] gap-6 relative">
+            {bentoExperiences
+              .filter(exp => exp.category === 'work')
+              .map((exp, index) => (
+                <BentoCard key={exp.id} exp={exp} index={index} />
+              ))}
+          </div>
+        </div>
+
+        {/* Education Section */}
+        <div>
+          <div className="flex items-center gap-3 mb-8">
+            <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 text-rose-400">
+              <GraduationCap size={22} />
+            </div>
+            <h3 className="text-2xl md:text-3xl font-bold text-white font-heading">Education</h3>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative">
+            {bentoExperiences
+              .filter(exp => exp.category === 'education')
+              .map((exp, index) => (
+                <BentoCard key={exp.id} exp={exp} index={index} />
+              ))}
+          </div>
         </div>
       </div>
     </section>
